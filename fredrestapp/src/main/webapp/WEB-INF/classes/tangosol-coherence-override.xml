@@ -1,0 +1,26 @@
+<?xml version='1.0'?>
+
+<coherence  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://xmlns.oracle.com/coherence/coherence-operational-config"
+            xsi:schemaLocation="http://xmlns.oracle.com/coherence/coherence-operational-config coherence-operational-config.xsd"
+            xml-override="../common/tangosol-coherence-override.xml">
+
+  <cluster-config>
+
+    <snapshot-archivers>
+      <custom-archiver id="simple-sftp-archiver">
+        <class-name>com.tangosol.examples.archiver.SFTPSnapshotArchiver</class-name>
+        <init-params>
+          <init-param>
+            <param-value>Coherence-0</param-value>
+          </init-param>
+        </init-params>
+      </custom-archiver>
+    </snapshot-archivers>
+  </cluster-config>
+
+  <management-config>
+    <managed-nodes system-property="coherence.management">all</managed-nodes>
+  </management-config>
+
+</coherence>
